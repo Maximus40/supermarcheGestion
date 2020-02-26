@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../css/style.css" />
-<title>navbar</title>
+<title>TP JEE Gestion</title>
 </head>
 <body>
  <ul>
