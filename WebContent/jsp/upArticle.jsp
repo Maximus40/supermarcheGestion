@@ -11,10 +11,15 @@
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 <jsp:include page="../jsp/nav.jsp" />
-<title>TP JEE Gestion - Accueil</title>
+<title>TP JEE Gestion - Modification</title>
 </head>
 <body>
-<h2 class="txtAccueil">Liste des produits</h2>
+<h2 class="txtAccueil">Modification de produits</h2>
+<c:if test="${(sessionScope.User == null)}">
+<div class="alert alert-danger addAlert" role="alert">Vous devez être connecté</div>
+
+</c:if>
+<c:if test="${(sessionScope.User != null)}">
 <c:if test="${(applicationScope.listArticle!= null)}">
 <table class="table">
  <tr>
@@ -32,6 +37,10 @@
   <td><c:out value="${item.prixHT}" />€</td>
   <td><c:out value="${item.tauxTVA}" />%</td>
   <td><c:out value="${item.codeBarre}" /></td>
+  <td><form action="" method="post">
+  <button type="submit" class="btn btn-warning" name="btMod" value="${item.codeBarre}" id="${item.codeBarre}">Modifier</button>
+  </form>
+  </td>
 </tr>
 </c:forEach>
 </table>
@@ -39,6 +48,7 @@
 <c:if test="${(applicationScope.listArticle== null)}">
 <div class="alert alert-danger addAlert" role="alert">Aucun article</div>
 
+</c:if>
 </c:if>
 
 </body>
